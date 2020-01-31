@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import {RenderInput} from "../Common/FormControls/renderField";
-import {required} from "../Common/FormControls/validators";
+import {RenderInput} from "../../Common/FormControls/renderField";
+import {required} from "../../Common/FormControls/validators";
 
 let FormAddCategories = (props) => {
     const addCategories = (values) => {

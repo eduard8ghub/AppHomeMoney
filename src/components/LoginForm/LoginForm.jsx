@@ -1,38 +1,8 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+import {NavLink} from "react-router-dom";
 import {RenderInput} from "../Common/FormControls/renderField";
 import {email, required} from "../Common/FormControls/validators";
-import {NavLink} from "react-router-dom";
-
-const Login = ({onLogin, trueLogin}) => {
-    let login = ({email, password}) => {
-        onLogin(email, password)
-    };
-    return (
-        <div className="auth">
-            <div className="auth-container">
-                <div className="card">
-                    <header className="auth-header">
-                        <h1 className="auth-title">
-                            <div className="logo">
-                                <span className="l l1"> </span>
-                                <span className="l l2"> </span>
-                                <span className="l l3"> </span>
-                                <span className="l l4"> </span>
-                                <span className="l l5"> </span>
-                            </div>
-                            Домашняя бухгалтерия
-                        </h1>
-                    </header>
-                    <div className="auth-content">
-                        <p className="text-xs-center">Войдите для работы</p>
-                        <LoginForm onSubmit={login} trueLogin={trueLogin}/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
 
 let LoginForm = (props) => {
     return (
@@ -53,7 +23,7 @@ let LoginForm = (props) => {
                 validate={[required]}
                 placeholder="Пароль"
             />
-            {props.trueLogin && <p className="wrong_login">Неверный email или пароль</p>}
+            {/*{props.trueLogin && <p className="wrong_login">Неверный email или пароль</p>}*/}
             <div className="form-group">
                 <button type="submit" className="btn btn-block btn-primary">Войти</button>
             </div>
@@ -67,6 +37,8 @@ let LoginForm = (props) => {
     )
 };
 
-LoginForm = reduxForm({form: "login"})(LoginForm);
+LoginForm = reduxForm({
+    form: "login"
+})(LoginForm);
 
-export default Login;
+export default LoginForm;

@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from "./hoc/Layout/Layout";
+import {connect} from "react-redux";
+import Auth from "./containers/Auth/Auth";
+import {autoLogin} from "./store/actions/authActions";
+import Sidebar from "./containers/Sidebar/Sidebar";
+import Header from "./containers/Header/Header";
+import Content from "./containers/Content/Content";
+import {onGetCurrency} from "./store/actions/currencyActions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.userEmail
+    }
+};
+
+class App extends React.Component {
+    componentDidMount() {
+        this.props.autoLogin();
+        this.props.onGetCurrency();
+    }
+    render() {
+        return (
+            <>
+                {
+                    this.props.isAuth ?
+                        <Layout header={<Header/>} nav={<Sidebar/>} content={<Content/>}/> :
+                        <Layout auth={<Auth/>}/>
+                }
+            </>
+        )
+
+    }
 }
 
-export default App;
+export default connect(mapStateToProps, {autoLogin, onGetCurrency})(App);
