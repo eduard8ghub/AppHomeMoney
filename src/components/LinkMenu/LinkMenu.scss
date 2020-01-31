@@ -1,0 +1,17 @@
+aside.sidebar {
+
+  .nav {
+
+    a {
+
+      i {
+        width: 22px;
+        text-align: center;
+      }
+    }
+    a.active {
+      background-color: #52bcd3!important;
+      color: #fff!important;
+    }
+  }
+}
