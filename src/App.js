@@ -7,6 +7,7 @@ import Sidebar from "./containers/Sidebar/Sidebar";
 import Header from "./containers/Header/Header";
 import Content from "./containers/Content/Content";
 import {onGetCurrency} from "./store/actions/currencyActions";
+import {onAddAllCategories} from "./store/actions/categoriesActions";
 
 const mapStateToProps = (state) => {
     return {
@@ -14,10 +15,12 @@ const mapStateToProps = (state) => {
     }
 };
 
+
 class App extends React.Component {
     componentDidMount() {
         this.props.autoLogin();
         this.props.onGetCurrency();
+        this.props.onAddAllCategories();
     }
     render() {
         return (
@@ -33,4 +36,4 @@ class App extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, {autoLogin, onGetCurrency})(App);
+export default connect(mapStateToProps, {autoLogin, onGetCurrency, onAddAllCategories})(App);

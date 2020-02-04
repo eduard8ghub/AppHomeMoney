@@ -1,4 +1,4 @@
-import {authAPI} from "../../../api/api";
+import {currencyAPI} from "../../../api/api";
 
 function composeAsyncValidators(validatorFns) {
     return async (values, dispatch, props, field) => {
@@ -14,32 +14,20 @@ function composeAsyncValidators(validatorFns) {
     };
 }
 
-
-const asyncValidateEmail = (values) => {
-    return authAPI.login(values)
+const asyncValidateCapacity = (values) => {
+    return currencyAPI.getCurrency()
         .then(response => {
-            console.log(response);
-            // if(data.data.error.message === "EMAIL_NOT_FOUND") {
-            //     console.log(data.data);
-            //     // throw{ email: 'Такой e-mail уже зарегистрирован' }
-            // }
-            // console.log(data.data.error.message);
+            let valNumber = +values.capacity;
+            if (valNumber > response[0].value) {
+                let diferent = valNumber - response[0].value;
+                // eslint-disable-next-line no-throw-literal
+                throw{capacity: `На счете недостаточно средств. Вам не хватает/ ${diferent} /`};
+            }
         })
-        .catch(error => {
-            console.log(error.toJSON());
-        })
+
 };
-// return new SubmissionError({ _error: 'whatever you want here' })
-// const asyncValidateLimit = (values) => {
-//     return currencyAPI.getMyBill().then((response) => {
-//         if (+values.capacity > response.value) {
-//             // eslint-disable-next-line no-throw-literal
-//             throw{ capacity: `На счете недостаточно средств. Вам не хватает/ ${+values.capacity - response.value} /` };
-//         }
-//     });
-// };
 
 
-const asyncValidate = composeAsyncValidators([asyncValidateEmail]);
+const asyncValidate = composeAsyncValidators([asyncValidateCapacity]);
 
 export default asyncValidate;

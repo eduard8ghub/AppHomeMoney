@@ -1,0 +1,12 @@
+.radio-group {
+  display: flex;
+  flex-direction: column;;
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .radio_btn {
+    cursor: pointer;
+  }
+}

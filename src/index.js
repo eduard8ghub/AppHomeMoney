@@ -15,6 +15,8 @@ const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(thunkMiddleware)
 ));
 
+window.store = store;
+
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>

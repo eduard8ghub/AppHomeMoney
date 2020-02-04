@@ -2,11 +2,15 @@ import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import {RenderInput} from "../../Common/FormControls/renderField";
 import {required} from "../../Common/FormControls/validators";
+import asyncValidate from "../../Common/FormControls/asyncValidate";
+
+
+
 
 let FormAddCategories = (props) => {
+
     const addCategories = (values) => {
-        console.log(values);
-        // onAddCategories(values.name, values.capacity);
+        props.onAddNewCategory(+values.capacity, values.name);
     };
 
 
@@ -45,7 +49,7 @@ let FormAddCategories = (props) => {
 
 export default reduxForm({
     form: "addCategories",
-    // asyncValidate,
+    asyncValidate,
     asyncBlurFields: ['capacity'],
 })(FormAddCategories);
 

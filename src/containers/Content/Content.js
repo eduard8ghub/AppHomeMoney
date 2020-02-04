@@ -19,7 +19,6 @@ class Content extends Component {
                         <Records/>
                     </Route>
                     <Route path="/planing">
-                        <h1>Planing</h1>
                        <Planing/>
                     </Route>
                 </Switch>

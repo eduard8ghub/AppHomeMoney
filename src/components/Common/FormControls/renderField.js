@@ -10,7 +10,6 @@ export const RenderInput = ({input, asyncValidate, meta, className, defaultValue
     const hasErrorLimit = meta.error && meta.error.split('/').length > 1 && meta.error.split('/');
     const hasError = meta.touched && meta.error;
 
-    // console.log(meta);
 
     return (
         <div className={classes("form-group", {"has-error": hasError})}>
