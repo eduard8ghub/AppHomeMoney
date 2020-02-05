@@ -33,7 +33,6 @@ let FormAddEvents = (props) => {
             updatedCapacityCategory = selectedCategory.capacity - (+values.amount);
         }
         props.onAddNewEvent(newEvent, updatedCapacityCategory);
-        props.resetForm()
     };
 
     return (

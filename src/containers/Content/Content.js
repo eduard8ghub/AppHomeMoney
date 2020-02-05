@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from "react-router-dom";
 import Planing from "../Planing/Planing";
 import Records from "../Records/Records";
+import HistoryContainer from "../../components/HistoryContainer/HistoryContainer";
 
 class Content extends Component {
     render() {
@@ -12,8 +13,7 @@ class Content extends Component {
                         {/*<BillContainer/>*/}
                     </Route>
                     <Route path="/history">
-                        <h1>History</h1>
-                        {/*<History/>*/}
+                        <HistoryContainer />
                     </Route>
                     <Route path="/records">
                         <Records/>

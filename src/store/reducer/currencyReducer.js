@@ -1,4 +1,5 @@
 import {SET_CURRENCY} from "../actions/currencyActions";
+import {SET_UPDATE_CURRENCY_VALUE} from "../actions/eventsActions";
 
 
 const initialState = {
@@ -13,6 +14,11 @@ export const currencyReducer = (state = initialState, action) => {
                 ...state,
                 currency: action.payload.currency,
                 currencyValue: action.payload.value
+            };
+        case SET_UPDATE_CURRENCY_VALUE:
+            return {
+                ...state,
+                currencyValue: action.payload
             };
         default:
             return state;

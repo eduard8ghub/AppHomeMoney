@@ -8,6 +8,7 @@ import Header from "./containers/Header/Header";
 import Content from "./containers/Content/Content";
 import {onGetCurrency} from "./store/actions/currencyActions";
 import {onAddAllCategories} from "./store/actions/categoriesActions";
+import {onGetAllEvents} from "./store/actions/eventsActions";
 
 const mapStateToProps = (state) => {
     return {
@@ -21,6 +22,7 @@ class App extends React.Component {
         this.props.autoLogin();
         this.props.onGetCurrency();
         this.props.onAddAllCategories();
+        this.props.onGetAllEvents();
     }
     render() {
         return (
@@ -36,4 +38,4 @@ class App extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, {autoLogin, onGetCurrency, onAddAllCategories})(App);
+export default connect(mapStateToProps, {autoLogin, onGetCurrency, onAddAllCategories, onGetAllEvents})(App);

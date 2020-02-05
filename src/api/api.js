@@ -3,6 +3,12 @@ import firebase from "./../firebase";
 
 const db = firebase.firestore();
 
+const updateBillValue = (value) => {
+    return db.collection('bill')
+        .doc("2NOCSBROlytlsHpQCrVD")
+        .update({value: firebase.firestore.FieldValue.increment(value)})
+};
+
 
 export const currencyAPI = {
     getCurrency() {
@@ -13,13 +19,26 @@ export const currencyAPI = {
 };
 
 export const eventsAPI = {
-    addNewEvent(newEvent, updatedCapacityCategory) {
+    getEvents() {
         return db.collection("events")
-            .add({newEvent})
+            .get()
+            .then(querySnapshot => querySnapshot.docs.map(itemDoc => itemDoc.data()))
+    },
+
+    addNewEvent(newEvent) {
+        return db.collection("events")
+            .add({...newEvent})
             .then(docRef => {
-                return db.collection('categories')
-                    .doc(newEvent.category)
-                    .update({capacity: updatedCapacityCategory})
+                if (newEvent.type === "outcome") {
+                     updateBillValue(-newEvent.amount)
+                } else {
+                     updateBillValue(newEvent.amount)
+                }
+                return db.collection("events")
+                    .where(firebase.firestore.FieldPath.documentId(), '==', docRef.id)
+                    .get()
+                    .then(querySnapshot => querySnapshot.docs.map(itemDoc => itemDoc.data()))
+
             })
     }
 };
