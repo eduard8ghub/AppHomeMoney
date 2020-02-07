@@ -39,7 +39,7 @@ let FormAddEvents = (props) => {
         <div className="card">
             <div className="card-header bordered">
                 <div className="header-block">
-                    <h3 className="title">Добавить событие</h3>
+                    <h3 className="title">Adaugă eveniment</h3>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ let FormAddEvents = (props) => {
                 <form onSubmit={props.handleSubmit(values => {
                     onSendFormEvents(values)
                 })}>
-                    <label className="control-label" htmlFor="category">Выберите категорию</label>
+                    <label className="control-label" htmlFor="category">Alege categoria</label>
                     <Field name="category" component={RenderSelect} onChange={selectCategory}>
                         {
                             props.allCategories.map((itemCategories, index) => (
@@ -55,30 +55,30 @@ let FormAddEvents = (props) => {
                             ))
                         }
                     </Field>
-                    <label className="control-label" htmlFor="category">Выберите тип</label>
+                    <label className="control-label" htmlFor="category">Alege tipul</label>
                     <Field validate={[required]} required={true} type="radio" name="type" component={RenderRadioButton}
                            options={[
-                               {title: "Доход", value: 'income'},
-                               {title: "Расход", value: 'outcome'}
+                               {title: "Venit", value: 'income'},
+                               {title: "Cheltuit", value: 'outcome'}
                            ]}/>
-                    <label className="control-label" htmlFor="amount">Введите сумму</label>
+                    <label className="control-label" htmlFor="amount">Introduceti suma</label>
                     <Field
                         name="amount"
                         type="number"
-                        placeholder="Введите сумму"
+                        placeholder="Introduceti suma"
                         max={selectedCategory.capacity}
                         component={RenderInput}
                         validate={[required]}
                     />
-                    <label className="control-label" htmlFor="amount">Введите описание</label>
+                    <label className="control-label" htmlFor="amount">Introduceti descrierea</label>
                     <Field
                         name="description"
                         type="text"
-                        placeholder="Введите описание"
+                        placeholder="Introduceti descrierea"
                         component={RenderInput}
                         validate={[required]}
                     />
-                    <button type="submit" className="btn btn-primary">Добавить</button>
+                    <button type="submit" className="btn btn-primary">Adauga</button>
                 </form>
             </div>
 

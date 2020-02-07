@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {onAddNewCategory, onDeleteCategory, onUpdateCategory} from "../../store/actions/categoriesActions";
 import {onAddNewEvent} from "../../store/actions/eventsActions";
 import FormChangeCategory from "../../components/RecorsForms/FormChangeCategory/FormChangeCategory";
-import "./Recors.scss";
+import "./RecordsPage.scss";
 
 const mapStateToProps = (state) => {
   return {
@@ -13,14 +13,14 @@ const mapStateToProps = (state) => {
   }
 };
 
-class Records extends Component {
+class RecordsPage extends Component {
     render() {
         let props = this.props;
         return (
            <>
                <div className="title-block">
                    <h3 className="title">
-                       Страница записей <span className="sparkline bar"> </span>
+                       Inregistrari <span className="sparkline bar"> </span>
                    </h3>
                </div>
 
@@ -53,4 +53,4 @@ class Records extends Component {
     }
 }
 
-export default connect(mapStateToProps, {onAddNewCategory, onAddNewEvent, onUpdateCategory, onDeleteCategory})(Records);
+export default connect(mapStateToProps, {onAddNewCategory, onAddNewEvent, onUpdateCategory, onDeleteCategory})(RecordsPage);

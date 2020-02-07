@@ -28,8 +28,12 @@ export const onAddAllCategories = () => (dispatch) => {
 export const onAddNewCategory = (capacity, name) => (dispatch) => {
     categoriesAPI.addNewCategory(capacity, name)
         .then(res => {
-            dispatch(setNewCategories(res));
-            dispatch(reset('addCategories'))
+            const newCategory = {
+                name: res[0].category.name,
+                capacity: res[0].category.capacity,
+                id: res[0].id
+            };
+            dispatch(setNewCategories(newCategory));
         })
 
 };

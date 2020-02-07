@@ -1,5 +1,6 @@
 import React from 'react';
 import "./PlaningProgressBar.scss";
+import cs from "classnames";
 
 const PlaningProgressBar = React.memo(({category, events}) => {
 
@@ -17,7 +18,7 @@ const PlaningProgressBar = React.memo(({category, events}) => {
         <div className="row">
             <div className="col-xs-6">
                 <div className="n-progress">
-                    <div className={"progress-bar " + `${getColoClass()}`} style={{width: `${getPercent()}%`}}>
+                    <div className={cs("progress-bar ", `${getColoClass()}`)} style={{width: `${getPercent()}%`}}>
                         <span>{category.name}</span>
                     </div>
                 </div>
@@ -28,7 +29,7 @@ const PlaningProgressBar = React.memo(({category, events}) => {
                     из
                     <span className="text-primary">{category.capacity}</span>
                     |
-                    осталось <span className={`text-${getColoClass()}`}>
+                    a ramas <span className={`text-${getColoClass()}`}>
                     {
                         category && events && (category.capacity - events)
                     }

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Switch} from "react-router-dom";
-import Planing from "../Planing/Planing";
-import Records from "../Records/Records";
-import HistoryContainer from "../../components/HistoryContainer/HistoryContainer";
+import Planing from "../PlaningPage/PlaningPage";
+import Records from "../RecordsPage/RecordsPage";
+import HistoryPage from "../HistoryPage/HistoryPage";
 
 class Content extends Component {
     render() {
@@ -13,7 +13,7 @@ class Content extends Component {
                         {/*<BillContainer/>*/}
                     </Route>
                     <Route path="/history">
-                        <HistoryContainer />
+                        <HistoryPage />
                     </Route>
                     <Route path="/records">
                         <Records/>

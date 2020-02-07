@@ -1,7 +1,8 @@
-import {SET_ADD_NEW_EVENT, SET_ALL_EVENTS} from "../actions/eventsActions";
+import {SET_ADD_NEW_EVENT, SET_ALL_EVENTS, SET_FOUND_EVENTS} from "../actions/eventsActions";
 
 const initialState = {
-  events: null
+    events: null,
+    foundEvents: null
 };
 
 export const eventsReducer = (state = initialState, action) => {
@@ -9,13 +10,19 @@ export const eventsReducer = (state = initialState, action) => {
         case SET_ALL_EVENTS:
             return {
                 ...state,
-              events: action.payload
+                events: action.payload
             };
         case SET_ADD_NEW_EVENT:
             return {
                 ...state,
                 events: [...state.events, ...action.payload]
             };
+        case SET_FOUND_EVENTS: {
+            return {
+                ...state,
+                foundEvents: action.payload
+            }
+        }
         default:
             return state;
     }

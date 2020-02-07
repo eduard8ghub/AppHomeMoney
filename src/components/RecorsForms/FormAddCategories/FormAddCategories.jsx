@@ -18,21 +18,21 @@ let FormAddCategories = (props) => {
         <div className="card">
             <div className="card-header bordered">
                 <div className="header-block">
-                    <h3 className="title">Добавить категорию</h3>
+                    <h3 className="title">Adauga categorie</h3>
                 </div>
             </div>
 
             <div className="card-block">
                 <form onSubmit={props.handleSubmit((values) => {addCategories(values)})}>
-                    <label className="control-label" htmlFor="email">Введите название</label>
+                    <label className="control-label" htmlFor="email">Introduceti denumire</label>
                     <Field
                         name="name"
                         type="text"
                         component={RenderInput}
                         validate={[required]}
-                        placeholder="Название"
+                        placeholder="Denumire"
                     />
-                    <label className="control-label" htmlFor="category-value">Введите лимит</label>
+                    <label className="control-label" htmlFor="category-value">Introduceti limita</label>
                     <Field
                         name="capacity"
                         type="number"
@@ -40,7 +40,7 @@ let FormAddCategories = (props) => {
                         validate={[required]}
                         placeholder="0"
                     />
-                    <button type="submit" className="btn btn-primary">Добавить</button>
+                    <button type="submit" className="btn btn-primary">Adauga</button>
                 </form>
             </div>
         </div>

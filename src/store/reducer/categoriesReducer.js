@@ -19,9 +19,10 @@ export const categoriesReducer = (state = initialState, action ) => {
               allCategories: [...action.payload]
           };
       case SET_ADD_NEW_CATEGORY:
+          console.log(action.payload);
           return {
               ...state,
-              allCategories: [...state.allCategories, ...action.payload]
+              allCategories: [...state.allCategories, action.payload]
           };
       case SET_UPDATE_CATEGORY:
           return {

@@ -58,7 +58,12 @@ export const categoriesAPI = {
                 return db.collection("categories")
                     .where(firebase.firestore.FieldPath.documentId(), '==', docRef.id)
                     .get()
-                    .then(querySnapshot => querySnapshot.docs.map(itemDoc => itemDoc.data()));
+                    .then(querySnapshot => querySnapshot.docs.map(itemDoc => {
+                        return {
+                            category: itemDoc.data(),
+                            id: docRef.id
+                        };
+                    }));
             });
     },
 

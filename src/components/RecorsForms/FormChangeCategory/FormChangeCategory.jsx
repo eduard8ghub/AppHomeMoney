@@ -29,14 +29,14 @@ let FormChangeCategory = (props) => {
         <div className="card">
             <div className="card-header bordered">
                 <div className="header-block">
-                    <h3 className="title">Редактировать категорию</h3>
+                    <h3 className="title">Redactarea categoriei</h3>
                 </div>
             </div>
 
             <div className="card-block">
                 <form onSubmit={props.handleSubmit((values) => {onSendChangeCategory(values)})}>
                     <div className="form-group">
-                        <label className="control-label" htmlFor="category">Выберите категорию</label>
+                        <label className="control-label" htmlFor="category">Alege categoria</label>
                         <Field name="category" component={RenderSelect} onChange={selectCategory}>
                             {
                                 props.allCategories.map((itemCategories, index) => (
@@ -46,7 +46,7 @@ let FormChangeCategory = (props) => {
                         </Field>
                     </div>
                     <div className="form-group">
-                        <label className="control-label" htmlFor="amount">Введите название</label>
+                        <label className="control-label" htmlFor="amount">Introduceti denumirea</label>
                         <Field
                             name="description"
                             type="text"
@@ -56,7 +56,7 @@ let FormChangeCategory = (props) => {
                         />
                     </div>
                     <div className="form-group">
-                        <label className="control-label" htmlFor="category-value">Введите лимит</label>
+                        <label className="control-label" htmlFor="category-value">Introduceti limita</label>
                         <Field
                             name="capacity"
                             type="number"
@@ -65,8 +65,8 @@ let FormChangeCategory = (props) => {
                             placeholder={selectedCategory.capacity}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Добавить</button>
-                    <button onClick={deleteCategory} className="btn btn-danger delete__btn">Удалить категорию</button>
+                    <button type="submit" className="btn btn-primary">Adauga</button>
+                    <button onClick={deleteCategory} className="btn btn-danger delete__btn">Sterge categoria</button>
                 </form>
             </div>
         </div>
