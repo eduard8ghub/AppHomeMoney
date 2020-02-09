@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import cs from "classnames";
+import format from "date-fns/format";
 
 const HistoryItem = ({events}) => {
     return (
@@ -11,7 +12,7 @@ const HistoryItem = ({events}) => {
                     <tr>
                         <th scope="row">{idx + 1}</th>
                         <td>{event.amount}</td>
-                        <td>{event.date.split(' ')[0]}</td>
+                        <td>{format(new Date(event.date), 'dd.MM.yyyy')}</td>
                         <td>{event.description}</td>
                         <td>
                 <span className={

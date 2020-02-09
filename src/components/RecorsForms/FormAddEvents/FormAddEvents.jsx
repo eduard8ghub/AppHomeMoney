@@ -6,7 +6,7 @@ import {RenderInput, RenderRadioButton, RenderSelect} from "../../Common/FormCon
 import "./FormAddEvents.scss";
 
 
-let currentDate = format(new Date(), 'MM.dd.yyyy  kk.mm.ss');
+let currentDate = format(new Date(), 'MM.dd.yyyy  kk:mm:ss');
 
 
 

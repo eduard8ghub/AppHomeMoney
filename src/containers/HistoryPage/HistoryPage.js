@@ -78,7 +78,14 @@ class HistoryPage extends Component {
                     </div>
                 </section>
                 {
-                    props.visiblePopup && <HistoryPopupFilter onChangeVisiblePopup={props.onChangeVisiblePopup}/>
+                    props.visiblePopup &&
+                    <HistoryPopupFilter
+                        onChangeVisiblePopup={props.onChangeVisiblePopup}
+                        selectPeriod={props.selectPeriod}
+                        eventsType={props.eventsType}
+                        allCategories={props.allCategories}
+                        events={props.events}
+                    />
                 }
             </>
         );
@@ -89,7 +96,10 @@ const mapStateToProps = (state) => {
     return {
         events: state.events.events,
         foundEvents: state.events.foundEvents,
-        visiblePopup: state.filterPopup.visiblePopup
+        visiblePopup: state.filterPopup.visiblePopup,
+        selectPeriod: state.filterPopup.selectPeriod,
+        eventsType: state.filterPopup.eventsType,
+        allCategories: state.categories.allCategories
     }
 };
 

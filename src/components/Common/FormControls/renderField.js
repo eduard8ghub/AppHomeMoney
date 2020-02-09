@@ -29,12 +29,31 @@ export const RenderInput = ({input, asyncValidate, meta, className, defaultValue
 
 export const RenderCheckBox = ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error;
+    console.log(input);
+
     return (
         // eslint-disable-next-line no-useless-concat
         <div className={"form-group" + " " + (hasError ? "has-error" : "")}>
             <label htmlFor="agree">
                 <input  type="checkbox"{...input} {...props} className="checkbox"/>
-                <span>Согласен с правилами</span>
+                <span>{input.name}</span>
+            </label>
+            <div>
+                {hasError && <span>{meta.error}</span>}
+            </div>
+        </div>
+    )
+};
+
+export const NewRenderCheckBox = ({input, meta, ...props}) => {
+    const hasError = meta.touched && meta.error;
+
+    return (
+        // eslint-disable-next-line no-useless-concat
+        <div className={"form-group" + " " + (hasError ? "has-error" : "")}>
+            <label htmlFor={input.name}>
+                <input  type="checkbox"{...input} {...props} className="checkbox"/>
+                <span>{input.name}</span>
             </label>
             <div>
                 {hasError && <span>{meta.error}</span>}

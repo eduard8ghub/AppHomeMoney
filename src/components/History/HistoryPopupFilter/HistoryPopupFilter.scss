@@ -1,3 +1,17 @@
 .modal.in {
   display: block;
 }
+
+.modal-body {
+
+  .checkbox-group {
+
+    .label-box {
+      display: block;
+    }
+    .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+}
