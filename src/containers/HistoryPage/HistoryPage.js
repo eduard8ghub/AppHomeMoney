@@ -4,8 +4,6 @@ import HistoryItem from "../../components/History/HistoryItem/HistoryItem";
 import {connect} from "react-redux";
 import HistoryHeader from "../../components/History/HistoryHeader/HistoryHeader";
 import {onSetFoundEvent} from "../../store/actions/eventsActions";
-import HistoryPopupFilter from "../../components/History/HistoryPopupFilter/HistoryPopupFilter";
-import {onChangeVisiblePopup} from "../../store/actions/filterPopupActions";
 
 
 class HistoryPage extends Component {
@@ -19,13 +17,6 @@ class HistoryPage extends Component {
                     <h3 className="title">
                         Istorie <span className="sparkline bar"> </span>
                     </h3>
-                    <div className="pull-right">
-                        <button className="btn-sm btn btn-primary-outline" onClick={() => {
-                            props.onChangeVisiblePopup(true)
-                        }}>
-                            <i className="fa fa-filter"/>
-                        </button>
-                    </div>
                 </div>
                 <section className="section">
                     <div className="row">
@@ -77,16 +68,6 @@ class HistoryPage extends Component {
                         </div>
                     </div>
                 </section>
-                {
-                    props.visiblePopup &&
-                    <HistoryPopupFilter
-                        onChangeVisiblePopup={props.onChangeVisiblePopup}
-                        selectPeriod={props.selectPeriod}
-                        eventsType={props.eventsType}
-                        allCategories={props.allCategories}
-                        events={props.events}
-                    />
-                }
             </>
         );
     }
@@ -96,11 +77,7 @@ const mapStateToProps = (state) => {
     return {
         events: state.events.events,
         foundEvents: state.events.foundEvents,
-        visiblePopup: state.filterPopup.visiblePopup,
-        selectPeriod: state.filterPopup.selectPeriod,
-        eventsType: state.filterPopup.eventsType,
-        allCategories: state.categories.allCategories
     }
 };
 
-export default connect(mapStateToProps, {onSetFoundEvent, onChangeVisiblePopup})(HistoryPage);
+export default connect(mapStateToProps, {onSetFoundEvent})(HistoryPage);

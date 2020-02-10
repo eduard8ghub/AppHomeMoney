@@ -31,16 +31,16 @@ class Header extends Component {
                         <li className={cn('profile', 'dropdown', {'open': this.state.showDropDownMenu})}>
                         <span className="nav-link dropdown-toggle" role="button" onClick={this.toggleDropDownMenu}>
                                 <span className="name">
-                                    Здравствуйте, {localStorage.userEmail.split('@')[0]}
+                                    Buna, {localStorage.userEmail.split('@')[0]}
                                 </span>
                         </span>
                             <div className="dropdown-menu profile-dropdown-menu">
                                 <NavLink className="dropdown-item" to="/">
-                                    <i className="fa fa-gear icon"> </i>Сделать запись</NavLink>
+                                    <i className="fa fa-gear icon"> </i>Faceti o înregistrare</NavLink>
                                 <div className="dropdown-divider"> </div>
                                 <NavLink className="dropdown-item" to="/" onClick={this.setOnLogout}>
                                     <i className="fa fa-power-off icon"/>
-                                    Выйти
+                                    Iesire
                                 </NavLink>
                             </div>
                         </li>

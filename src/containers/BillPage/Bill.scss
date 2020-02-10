@@ -1,0 +1,22 @@
+.card.stats {
+  height: 293px;
+}
+
+.title-block {
+  display: flex;
+  justify-content: space-between;
+  &:after {
+    content: none;
+  }
+}
+
+
+.card.stats {
+  height: 100%;
+}
+
+.dashboard-page .stats .stat-icon {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 20px;
+}

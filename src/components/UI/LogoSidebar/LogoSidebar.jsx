@@ -11,7 +11,7 @@ const LogoSidebar = () => {
                     <span className="l l4"> </span>
                     <span className="l l5"> </span>
                 </div>
-                Бухгалтерия
+                Contabilitate
             </div>
         </div>
     );

@@ -5,10 +5,10 @@ import LinkMenu from "../../components/LinkMenu/LinkMenu";
 class Sidebar extends Component {
     state = {
         menuLinks: [
-            {id: 1, href: "/bill", text: "Счет", iconName: "far fa-building"},
-            {id: 2, href: "/history", text: "История", iconName: "fas fa-bolt"},
-            {id: 3, href: "/planing", text: "Планирование", iconName: "fas fa-archive"},
-            {id: 4, href: "/records", text: "Запись", iconName: "fas fa-plus-square"}
+            {id: 1, href: "/bill", text: "Bills", iconName: "far fa-building"},
+            {id: 2, href: "/history", text: "Istoria", iconName: "fas fa-bolt"},
+            {id: 3, href: "/planing", text: "Planificare", iconName: "fas fa-archive"},
+            {id: 4, href: "/records", text: "Inregistrari", iconName: "fas fa-plus-square"}
         ]
     };
 
