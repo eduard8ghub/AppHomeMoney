@@ -29,8 +29,6 @@ export const RenderInput = ({input, asyncValidate, meta, className, defaultValue
 
 export const RenderCheckBox = ({input, meta, ...props}) => {
     const hasError = meta.touched && meta.error;
-    console.log(input);
-
     return (
         // eslint-disable-next-line no-useless-concat
         <div className={"form-group" + " " + (hasError ? "has-error" : "")}>

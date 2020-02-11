@@ -30,6 +30,21 @@ html {
   color: tomato;
 }
 
+.error_auth {
+  background-color: #ff0011;
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+};
+
+.card-header.card-header-success {
+  background-color: #4bcf99 !important;
+}
+
+.card-header-danger {
+  background-color: #f44 !important;
+}
+
 
 ////////////////////////////////////////////////
 

@@ -7,7 +7,9 @@ import "./FormAddEvents.scss";
 
 
 let currentDate = format(new Date(), 'MM.dd.yyyy  kk:mm:ss');
-
+const randomId = ((min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+});
 
 
 let FormAddEvents = (props) => {
@@ -24,7 +26,8 @@ let FormAddEvents = (props) => {
             category: selectedCategory.id,
             date: currentDate,
             description: values.description,
-            type: values.type
+            type: values.type,
+            id: randomId(1, 100000)
         };
         let updatedCapacityCategory;
         if (values.type === "income") {

@@ -6,7 +6,7 @@ import {autoLogin} from "./store/actions/authActions";
 import Sidebar from "./containers/Sidebar/Sidebar";
 import Header from "./containers/Header/Header";
 import Content from "./containers/Content/Content";
-import {onGetCurrency} from "./store/actions/currencyActions";
+import {onGetBill, onGetCurrency} from "./store/actions/currencyActions";
 import {onAddAllCategories} from "./store/actions/categoriesActions";
 import {onGetAllEvents} from "./store/actions/eventsActions";
 
@@ -20,9 +20,10 @@ const mapStateToProps = (state) => {
 class App extends React.Component {
     componentDidMount() {
         this.props.autoLogin();
-        this.props.onGetCurrency();
+        this.props.onGetBill();
         this.props.onAddAllCategories();
         this.props.onGetAllEvents();
+        this.props.onGetCurrency();
     }
     render() {
         return (
@@ -38,4 +39,4 @@ class App extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, {autoLogin, onGetCurrency, onAddAllCategories, onGetAllEvents})(App);
+export default connect(mapStateToProps, {autoLogin, onGetBill, onAddAllCategories, onGetAllEvents, onGetCurrency})(App);

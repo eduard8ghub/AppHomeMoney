@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import PlaningProgressBar from "../../components/PlaningProgressBar/PlaningProgressBar";
 import {connect} from "react-redux";
 import {onGetAllEvents} from "../../store/actions/eventsActions";
+import {numberWithCommas} from "../../components/Common/NumberWithCommas/NumberWithCommas";
 
 const mapStateToProps = (state) => {
     return {
-        currencyValue: state.currency.currencyValue,
+        myBill: state.currency.myBill,
         categories: state.categories.allCategories,
         events: state.events.events
     }
@@ -22,9 +23,9 @@ class PlaningPage extends Component {
     render() {
         const props = this.props;
 
-        function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+        // function numberWithCommas(x) {
+        //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        // }
 
         function getCategoryCost(categories) {
             if (props.categories && props.events) {
@@ -53,7 +54,7 @@ class PlaningPage extends Component {
                                     </div>
                                     <h5 className="planning-expenses pull-right">
                                         Suma disponibila: <span className="text-success">{
-                                        props.currencyValue && numberWithCommas(props.currencyValue)
+                                        props.myBill && numberWithCommas(props.myBill)
                                         } MDL</span>
                                     </h5>
                                 </div>

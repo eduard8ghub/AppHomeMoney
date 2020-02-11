@@ -24,7 +24,7 @@ const HistoryItem = ({events}) => {
                 </span>
                         </td>
                         <td className="text-lg-center">
-                            <NavLink to="/" className="btn btn-primary-outline"
+                            <NavLink to={`/history/${event.id}`} className="btn btn-primary-outline"
                                      activeClassName="activeItem">Deschide</NavLink>
                         </td>
                     </tr>

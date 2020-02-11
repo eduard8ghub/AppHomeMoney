@@ -1,4 +1,5 @@
 import React from 'react';
+import {numberWithCommas} from "../../../components/Common/NumberWithCommas/NumberWithCommas";
 
 const MyBill = ({myBill, currentCurrency}) => {
     return (
@@ -14,7 +15,7 @@ const MyBill = ({myBill, currentCurrency}) => {
                                 <span>MDL</span>
                             </div>
                             <div className="stat">
-                                <div className="value">{myBill.value}</div>
+                                <div className="value">{numberWithCommas(myBill)}</div>
                             </div>
                             <progress className="progress stat-progress" value="100" max="100">
                                 <div className="progress">
@@ -23,17 +24,17 @@ const MyBill = ({myBill, currentCurrency}) => {
                             </progress>
                         </div>
                         {
-                            currentCurrency.map((itemBill, index) => (
+                            currentCurrency && currentCurrency.map((itemBill, index) => (
                                 <div className="col-xs-12 stat-col" key={index}>
                                     <div className="stat-icon">
                                         {itemBill.currencyValute}
                                     </div>
                                     <div className="stat">
-                                        <div className="value">{(myBill.value / itemBill.newArrRate).toFixed(2)}</div>
+                                        <div className="value">{numberWithCommas((myBill / itemBill.newArrRate).toFixed(2))}</div>
                                     </div>
                                     <progress className="progress stat-progress" value="100" max="100">
                                         <div className="progress">
-                                            <span className="progress-bar" style={{width: "100%"}}> </span>
+                                            <span className="progress-bar" style={{width: "100%"}} />
                                         </div>
                                     </progress>
                                 </div>

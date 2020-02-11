@@ -1,10 +1,11 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {RenderInput} from "../Common/FormControls/renderField";
 import {email, required} from "../Common/FormControls/validators";
 
 let LoginForm = (props) => {
+
     return (
         <form onSubmit={props.handleSubmit}>
             <label htmlFor="email">Email</label>
@@ -41,4 +42,4 @@ LoginForm = reduxForm({
     form: "login"
 })(LoginForm);
 
-export default LoginForm;
+export default withRouter(LoginForm);

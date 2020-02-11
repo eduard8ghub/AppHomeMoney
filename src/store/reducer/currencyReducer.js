@@ -1,24 +1,21 @@
-import {SET_CURRENCY} from "../actions/currencyActions";
-import {SET_UPDATE_CURRENCY_VALUE} from "../actions/eventsActions";
+import {SET_CURRENCY, SET_MY_BILL} from "../actions/currencyActions";
 
-
-const initialState = {
-    currency: null,
-    currencyValue: null
+const defaultState = {
+    allCurrency: null,
+    myBill: null
 };
 
-export const currencyReducer = (state = initialState, action) => {
+export const currencyReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case SET_CURRENCY :
+        case SET_CURRENCY:
             return {
                 ...state,
-                currency: action.payload.currency,
-                currencyValue: action.payload.value
+                allCurrency: action.payload
             };
-        case SET_UPDATE_CURRENCY_VALUE:
+        case SET_MY_BILL:
             return {
                 ...state,
-                currencyValue: action.payload
+                myBill: action.payload
             };
         default:
             return state;

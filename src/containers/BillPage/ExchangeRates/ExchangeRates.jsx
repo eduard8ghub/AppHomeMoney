@@ -1,5 +1,5 @@
 import React from 'react';
-import {getCurrentDate} from "../../../Utils/getCurrentDateUtils";
+import {getCurrentDate} from "../../../utils/CurrentDate";
 
 const ExchangeRates = ({currentCurrency}) => {
     return (

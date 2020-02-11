@@ -3,6 +3,16 @@ import firebase from "./../firebase";
 
 const db = firebase.firestore();
 
+// export const authAPITest = {
+//     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//         // Handle Errors here.
+//         let errorCode = error.code;
+//         let errorMessage = error.message;
+//         // ...
+//     })
+// };
+
+
 const updateBillValue = (value) => {
     return db.collection('bill')
         .doc("2NOCSBROlytlsHpQCrVD")
@@ -11,11 +21,15 @@ const updateBillValue = (value) => {
 
 
 export const currencyAPI = {
-    getCurrency() {
+    getBill() {
         return db.collection("bill")
             .get()
             .then(querySnapshot => querySnapshot.docs.map(itemDoc => itemDoc.data()));
-    }
+    },
+    getCurrency() {
+        return axios.get('http://localhost:8000/api/posts')
+            .then(response => response.data);
+    },
 };
 
 export const eventsAPI = {
@@ -97,7 +111,9 @@ export const authAPI = {
             returnSecureToken: true
         };
         return axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBG1qYgl8cFGmqUubIZVy2kRtaC1o_lWNU", authData)
-            .then(response => response.data)
+            .then(response => response)
+            // .catch(error => error)
+            // .then(response => response.data)
     },
 
     login(value) {
@@ -109,3 +125,4 @@ export const authAPI = {
         return axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBG1qYgl8cFGmqUubIZVy2kRtaC1o_lWNU", authData)
     },
 };
+
